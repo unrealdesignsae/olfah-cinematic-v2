@@ -35,4 +35,4 @@ Use only supplied Olfah renders. Preserve architecture, composition and perspect
 
 ## Studio credit
 
-The home and mobile navigation include a restrained credit for Unreal Studio with links to `unreal.ae` and WhatsApp at `+971 56 750 2350`.
+The home and mobile navigation include the supplied Unreal Studio mark, with links to `unreal.ae` and WhatsApp at `+971 56 750 2350`.

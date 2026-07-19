@@ -94,7 +94,10 @@ function Header({ openPanel, menuOpen, setMenuOpen }) {
         </nav>
         <div className="mobile-studio-credit">
           <span>Made by Unreal Studio</span>
-          <a href="https://unreal.ae/" target="_blank" rel="noreferrer">unreal.ae <Arrow /></a>
+          <a className="unreal-credit" href="https://unreal.ae/" target="_blank" rel="noreferrer">
+            <i className="unreal-mark" aria-hidden="true"><img src="/assets/unreal-logo.png" alt="" /></i>
+            <b>unreal.ae</b> <Arrow />
+          </a>
           <a href="https://wa.me/971567502350" target="_blank" rel="noreferrer">+971 56 750 2350</a>
         </div>
       </div>
@@ -135,7 +138,10 @@ function Hero({ scene, setScene, openPanel }) {
         <div className="legal-links">
           <a href="https://www.alefgroup.ae/privacy-policy/" target="_blank" rel="noreferrer">Privacy</a>
           <span />
-          <a href="https://unreal.ae/" target="_blank" rel="noreferrer">Made by Unreal Studio</a>
+          <a className="unreal-credit" href="https://unreal.ae/" target="_blank" rel="noreferrer">
+            <i className="unreal-mark" aria-hidden="true"><img src="/assets/unreal-logo.png" alt="" /></i>
+            <b>Made by Unreal Studio</b>
+          </a>
           <span />
           <a href="https://wa.me/971567502350" target="_blank" rel="noreferrer" aria-label="Contact Unreal Studio on WhatsApp at +971 56 750 2350">Contact</a>
         </div>
