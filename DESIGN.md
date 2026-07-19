@@ -27,7 +27,12 @@ A single-screen cinematic real-estate experience inspired by the pacing and inte
 - Dark cinematic overlays for gallery, film, developer and panorama
 - Motion uses opacity and transform only; reduced-motion settings are respected
 - Controls have visible focus states and minimum 44px touch targets
+- The floating navigation has no outer border; the supplied Olfah logo remains unchanged
 
 ## Imagery
 
 Use only supplied Olfah renders. Preserve architecture, composition and perspective. Maintain a soft, natural, warm-to-blue-hour grade with realistic landscape color. Do not add grain, noise or crosshatching.
+
+## Studio credit
+
+The home and mobile navigation include a restrained credit for Unreal Studio with links to `unreal.ae` and WhatsApp at `+971 56 750 2350`.

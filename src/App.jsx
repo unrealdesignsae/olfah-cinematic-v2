@@ -92,6 +92,11 @@ function Header({ openPanel, menuOpen, setMenuOpen }) {
           <a href="/assets/olfah-brochure.pdf" target="_blank" rel="noreferrer">Brochure</a>
           <button type="button" onClick={() => { openPanel('enquire'); setMenuOpen(false) }}>Enquire</button>
         </nav>
+        <div className="mobile-studio-credit">
+          <span>Made by Unreal Studio</span>
+          <a href="https://unreal.ae/" target="_blank" rel="noreferrer">unreal.ae <Arrow /></a>
+          <a href="https://wa.me/971567502350" target="_blank" rel="noreferrer">+971 56 750 2350</a>
+        </div>
       </div>
     </header>
   )
@@ -130,7 +135,9 @@ function Hero({ scene, setScene, openPanel }) {
         <div className="legal-links">
           <a href="https://www.alefgroup.ae/privacy-policy/" target="_blank" rel="noreferrer">Privacy</a>
           <span />
-          <a href="https://www.alefgroup.ae/" target="_blank" rel="noreferrer">Alef Group</a>
+          <a href="https://unreal.ae/" target="_blank" rel="noreferrer">Made by Unreal Studio</a>
+          <span />
+          <a href="https://wa.me/971567502350" target="_blank" rel="noreferrer" aria-label="Contact Unreal Studio on WhatsApp at +971 56 750 2350">Contact</a>
         </div>
         <button className="hero-fact" type="button" onClick={() => openPanel('details')}>
           <strong>84,814 <small>m²</small></strong><span>Community</span>
