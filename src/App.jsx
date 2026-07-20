@@ -95,13 +95,36 @@ function Header({ openPanel, menuOpen, setMenuOpen }) {
         <div className="mobile-studio-credit">
           <span>Made by Unreal Studio</span>
           <a className="unreal-credit" href="https://unreal.ae/" target="_blank" rel="noreferrer">
-            <i className="unreal-mark" aria-hidden="true"><img src="/assets/unreal-logo.png" alt="" /></i>
+            <i className="unreal-mark" aria-hidden="true"><img src="/assets/unreal-logo-light.png" alt="" /></i>
             <b>unreal.ae</b> <Arrow />
           </a>
           <a href="https://wa.me/971567502350" target="_blank" rel="noreferrer">+971 56 750 2350</a>
         </div>
       </div>
     </header>
+  )
+}
+
+function ConceptDisclosure() {
+  const [expanded, setExpanded] = useState(false)
+
+  return (
+    <aside className={`concept-disclosure ${expanded ? 'is-expanded' : ''}`} aria-label="Independent concept disclosure">
+      <button type="button" aria-expanded={expanded} onClick={() => setExpanded((value) => !value)}>
+        <i aria-hidden="true" />
+        <span>Independent concept</span>
+        <small>Not affiliated with Alef Group</small>
+      </button>
+      <div className="concept-disclosure-panel" hidden={!expanded}>
+        <div>
+          <span>Project notice</span>
+          <button type="button" onClick={() => setExpanded(false)} aria-label="Close project notice"><CloseIcon /></button>
+        </div>
+        <p>This is an independent speculative design study created by Unreal Studio for demonstration and portfolio purposes. It was not commissioned, approved, sponsored or endorsed by Alef Group, and Unreal Studio is not affiliated with Alef Group.</p>
+        <p>Alef Group names, project names, trademarks, logos, imagery, plans and related materials remain the property of their respective owners. Nothing on this concept website constitutes a property offer or official sales information.</p>
+        <a href="https://www.alefgroup.ae/" target="_blank" rel="noreferrer">Visit Alef Group’s official website <Arrow /></a>
+      </div>
+    </aside>
   )
 }
 
@@ -139,7 +162,7 @@ function Hero({ scene, setScene, openPanel }) {
           <a href="https://www.alefgroup.ae/privacy-policy/" target="_blank" rel="noreferrer">Privacy</a>
           <span />
           <a className="unreal-credit" href="https://unreal.ae/" target="_blank" rel="noreferrer">
-            <i className="unreal-mark" aria-hidden="true"><img src="/assets/unreal-logo.png" alt="" /></i>
+            <i className="unreal-mark" aria-hidden="true"><img src="/assets/unreal-logo-light.png" alt="" /></i>
             <b>Made by Unreal Studio</b>
           </a>
           <span />
@@ -372,6 +395,7 @@ function EnquirePanel({ closePanel }) {
         <p className="panel-kicker">Register your interest</p>
         <h2>Find your space<br /><em>at Olfah.</em></h2>
         <p>Speak with the Alef sales team about one, two and three bedroom residences.</p>
+        <p className="concept-form-note">Concept demonstration only. This form is not connected to Alef Group and does not submit an official property enquiry.</p>
         {status === 'success' ? (
           <div className="success-message" role="status"><span>Thank you</span><h3>Your interest has been noted.</h3><p>For immediate help, call Alef Group on 800 998.</p><a href="tel:800998">Call 800 998 <Arrow /></a></div>
         ) : (
@@ -451,6 +475,7 @@ export default function App() {
   return (
     <div className="app-shell">
       <Header openPanel={openPanel} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <ConceptDisclosure />
       <Hero scene={heroScene} setScene={setHeroScene} openPanel={openPanel} />
       {panel}
       <CookieNotice />

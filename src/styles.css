@@ -80,6 +80,57 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
 .menu-button i { display: block; width: 20px; height: 1px; margin-left: 10px; background: currentColor; }
 .mobile-navigation { display: none; }
 
+.concept-disclosure {
+  position: fixed;
+  z-index: 35;
+  top: 128px;
+  left: 50%;
+  width: min(420px, calc(100% - 32px));
+  transform: translateX(-50%);
+}
+.concept-disclosure > button {
+  display: grid;
+  min-height: 38px;
+  grid-template-columns: 7px auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 0 auto;
+  padding: 0 15px;
+  border: 1px solid rgba(250, 247, 239, 0.22);
+  border-radius: 999px;
+  background: rgba(10, 28, 21, 0.78);
+  color: rgba(250, 247, 239, 0.82);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 32px rgba(2, 9, 6, 0.16);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+  transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+.concept-disclosure > button:hover { border-color: rgba(250, 247, 239, 0.42); background: rgba(10, 28, 21, 0.94); transform: translateY(-1px); }
+.concept-disclosure > button i { width: 7px; height: 7px; border: 1px solid #e0c276; border-radius: 50%; }
+.concept-disclosure > button span, .concept-disclosure > button small { font-size: 8px; font-weight: 500; letter-spacing: 0.14em; line-height: 1; text-transform: uppercase; }
+.concept-disclosure > button small { padding-left: 9px; border-left: 1px solid rgba(250, 247, 239, 0.22); color: rgba(250, 247, 239, 0.52); }
+.concept-disclosure-panel {
+  position: absolute;
+  top: 47px;
+  left: 50%;
+  width: min(420px, calc(100vw - 32px));
+  padding: 24px;
+  border: 1px solid rgba(214, 191, 133, 0.38);
+  background: rgba(11, 28, 20, 0.97);
+  color: var(--ivory);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 24px 70px rgba(2, 9, 6, 0.34);
+  backdrop-filter: blur(18px);
+  transform: translateX(-50%);
+}
+.concept-disclosure-panel > div { display: flex; align-items: center; justify-content: space-between; padding-bottom: 15px; border-bottom: 1px solid var(--line-dark); }
+.concept-disclosure-panel > div > span { color: #e0c276; font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
+.concept-disclosure-panel > div button { display: grid; width: 30px; height: 30px; place-items: center; padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.concept-disclosure-panel > div svg { width: 16px; fill: none; stroke: currentColor; stroke-width: 1.25; }
+.concept-disclosure-panel p { margin: 17px 0 0; color: rgba(250, 247, 239, 0.67); font-size: 11px; line-height: 1.72; }
+.concept-disclosure-panel > a { display: inline-flex; align-items: center; gap: 9px; margin-top: 19px; padding-bottom: 5px; border-bottom: 1px solid rgba(250, 247, 239, 0.38); font-size: 10px; }
+.concept-disclosure-panel > a svg { width: 15px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+
 .hero { position: relative; min-height: 100dvh; overflow: hidden; background: #1b2b23; }
 .hero-media, .hero-media picture, .hero-media img, .hero-grade { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-media picture { opacity: 0; transition: opacity 1400ms ease; }
@@ -170,8 +221,8 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
 .legal-links span { width: 1px; height: 13px; background: rgba(250, 247, 239, 0.45); }
 .unreal-credit { display: inline-flex; align-items: center; gap: 7px; }
 .unreal-credit b { font-size: inherit; font-weight: 400; white-space: nowrap; }
-.unreal-mark { position: relative; display: inline-block; width: 50px; height: 25px; flex: 0 0 auto; overflow: hidden; }
-.unreal-mark img { position: absolute; top: 0; left: -17px; width: 90px; max-width: none; height: auto; filter: invert(1); }
+.unreal-mark { position: relative; display: inline-flex; width: 50px; height: 25px; flex: 0 0 auto; align-items: center; }
+.unreal-mark img { width: 50px; max-width: none; height: 25px; object-fit: contain; object-position: center; }
 .hero-fact { padding: 0; border: 0; background: none; cursor: pointer; text-align: center; }
 .hero-fact strong { display: block; font-family: 'Tenor Sans', sans-serif; font-size: clamp(29px, 3.2vw, 53px); font-weight: 400; letter-spacing: 0.04em; line-height: 1; }
 .hero-fact strong small { font-size: 0.48em; }
@@ -361,6 +412,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
 .enquire-image strong { font-family: 'Tenor Sans', sans-serif; font-size: clamp(28px, 3vw, 51px); font-weight: 400; line-height: 1.05; }
 .enquire-content { display: flex; flex-direction: column; justify-content: center; padding: 70px clamp(38px, 5vw, 86px); }
 .enquire-content > p:not(.panel-kicker) { max-width: 550px; margin: 24px 0 0; color: rgba(19, 32, 25, 0.65); font-size: 13px; line-height: 1.7; }
+.enquire-content > .concept-form-note { margin-top: 12px; padding: 11px 13px; border-left: 2px solid var(--terracotta); background: rgba(184, 115, 82, 0.08); color: rgba(19, 32, 25, 0.72); font-size: 10px; line-height: 1.55; }
 .enquire-content form { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 18px; margin-top: 32px; }
 .enquire-content label { position: relative; display: flex; flex-direction: column; gap: 7px; color: rgba(19, 32, 25, 0.66); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; }
 .enquire-content label.full { grid-column: 1 / -1; }
@@ -418,6 +470,9 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
   .site-header { top: 14px; width: calc(100% - 24px); min-height: 64px; padding: 0 16px 0 20px; }
   .brand { width: 82px; height: 50px; }
   .brand img { height: 44px; }
+  .concept-disclosure { top: 87px; }
+  .concept-disclosure > button { grid-template-columns: 7px auto; }
+  .concept-disclosure > button small { display: none; }
   .hero-content { top: 46%; }
   .hero-kicker { margin-bottom: 18px; font-size: 8px; }
   .hero-copy { max-width: 470px; margin-top: 19px; }

@@ -61,6 +61,19 @@
       .brand-copy strong { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
       .brand-copy span { color: rgba(255,255,255,.64); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
 
+      .concept-label {
+        padding: 7px 10px;
+        border: 1px solid rgba(255,255,255,.24);
+        color: rgba(255,255,255,.68);
+        background: rgba(24,34,24,.42);
+        backdrop-filter: blur(14px);
+        font-size: 8px;
+        font-weight: 600;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        pointer-events: auto;
+      }
+
       .viewer-actions { display: flex; align-items: center; gap: 8px; }
       .control, .back {
         min-height: 42px;
@@ -164,6 +177,7 @@
         .brand-copy { display: none; }
         .brand::after { display: none; }
         .brand img { width: 52px; }
+        .concept-label { position: fixed; top: 70px; left: 14px; max-width: 170px; line-height: 1.45; }
         .hint { max-width: 190px; font-size: 8px; line-height: 1.5; }
         .back span { display: none; }
         .back { width: 42px; padding: 0; justify-content: center; }
@@ -196,6 +210,7 @@
             <img src="../assets/olfah-logo.svg" alt="Olfah" />
             <div class="brand-copy"><strong id="scene-name">Pool courtyard</strong><span>360° panorama</span></div>
           </div>
+          <div class="concept-label" role="note">Independent concept · Not affiliated with Alef Group</div>
           <div class="viewer-actions">
             <button class="control" id="gyro" type="button" aria-label="Start motion view" title="Start motion view" hidden>
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="7.5" stroke="currentColor" stroke-width="1.5"/><path d="m12 8 2.2 6-6-2.2L12 8Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
