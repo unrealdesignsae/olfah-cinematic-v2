@@ -26,12 +26,12 @@ const facts = [
 ]
 
 const details = [
-  ['Sharjah’s largest private community park', 'An elevated podium park of more than 26,000 m².'],
-  ['Five swimming pools', 'A 25 m lap pool, children’s pool, jacuzzi and three large recreational pools.'],
-  ['Movement through nature', 'Jogging and cycle paths, a woodland walk, shaded seating and outdoor exercise equipment.'],
-  ['Play and discovery', 'Interactive water features, lawn mounds, a kids’ waterpark, sand play and a climbing wall.'],
-  ['Places to gather', 'An amphitheatre with grass stage, family BBQ and picnic areas, community retreats and retail.'],
-  ['Homes connected to landscape', 'Green rooftops, considered balconies and private gardens for select ground-floor homes.'],
+  ['park', 'Sharjah’s largest private community park', 'An elevated podium park of more than 26,000 m².'],
+  ['pool', 'Five swimming pools', 'A 25 m lap pool, children’s pool, jacuzzi and three large recreational pools.'],
+  ['movement', 'Movement through nature', 'Jogging and cycle paths, a woodland walk, shaded seating and outdoor exercise equipment.'],
+  ['play', 'Play and discovery', 'Interactive water features, lawn mounds, a kids’ waterpark, sand play and a climbing wall.'],
+  ['gather', 'Places to gather', 'An amphitheatre with grass stage, family BBQ and picnic areas, community retreats and retail.'],
+  ['homes', 'Homes connected to landscape', 'Green rooftops, considered balconies and private gardens for select ground-floor homes.'],
 ]
 
 const galleries = {
@@ -65,6 +65,32 @@ function CloseIcon() {
 
 function PlayIcon() {
   return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 7 8 5-8 5Z" /></svg>
+}
+
+function AmenityIcon({ type }) {
+  const sharedProps = { className: 'amenity-icon', viewBox: '0 0 64 64', 'aria-hidden': true }
+
+  if (type === 'park') {
+    return <svg {...sharedProps}><path d="M32 48V27M22 48h20M32 10c-3 0-5 2.6-5 5.7-4.4.5-7 3.4-7 7.1 0 4.2 3.2 7.2 7.7 7.2h8.6c4.5 0 7.7-3 7.7-7.2 0-3.7-2.6-6.6-7-7.1C37 12.6 35 10 32 10Z" /><path d="M14 53c5-3 10-3 15 0s10 3 21 0" /></svg>
+  }
+
+  if (type === 'pool') {
+    return <svg {...sharedProps}><path d="M10 43c4-3 8-3 12 0s8 3 12 0 8-3 12 0 8 3 10 1M10 51c4-3 8-3 12 0s8 3 12 0 8-3 12 0 8 3 10 1M20 40V18c0-5 8-5 8 0v5h12v-5c0-5 8-5 8 0v22M20 29h28M20 35h28" /></svg>
+  }
+
+  if (type === 'movement') {
+    return <svg {...sharedProps}><circle cx="36" cy="12" r="4" /><path d="m33 20-7 11 8 5 5 16M28 28l-9 6M34 21l10 8h8M31 38l-9 14M9 43h12M12 36h7" /></svg>
+  }
+
+  if (type === 'play') {
+    return <svg {...sharedProps}><circle cx="34" cy="11" r="5" /><path d="M13 51c4-10 8-17 13-22m-8-3c5 1 8 4 10 9l3 8m21 8c-4-10-8-17-13-22m8-3c-5 1-8 4-10 9l-3 8" /><circle cx="13" cy="26" r="4" /><circle cx="52" cy="26" r="4" /><path d="M27 14c2 4 8 5 12 1" /></svg>
+  }
+
+  if (type === 'gather') {
+    return <svg {...sharedProps}><path d="M14 28h36c0 10-7 17-18 17s-18-7-18-17ZM20 45l-4 10M44 45l4 10M16 54h32M20 22h24M26 17c-3-3 2-5 0-8M36 17c-3-3 2-5 0-8" /><path d="M46 22c4-5 2-11-3-13" /></svg>
+  }
+
+  return <svg {...sharedProps}><path d="M12 54h40M17 54V21l15-9 15 9v33M24 27h5v6h-5zM35 27h5v6h-5zM24 39h5v6h-5zM35 39h5v15" /><path d="M44 16c1-5 4-8 9-8 0 5-3 9-9 10" /></svg>
 }
 
 function Header({ openPanel, menuOpen, setMenuOpen }) {
@@ -225,9 +251,13 @@ function DetailsPanel({ closePanel }) {
               <div><dt>Residences</dt><dd>World-class 1, 2 and 3 bedroom apartments</dd></div>
             </dl>
           </div>
-          <div className="details-list">
-            {details.map(([title, copy], index) => (
-              <article key={title}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{title}</h3><p>{copy}</p></div></article>
+          <div className="amenities-grid" aria-label="Olfah amenities">
+            {details.map(([icon, title, copy]) => (
+              <article key={title}>
+                <AmenityIcon type={icon} />
+                <h3>{title}</h3>
+                <p>{copy}</p>
+              </article>
             ))}
           </div>
         </div>

@@ -304,11 +304,11 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
 .details-intro dl > div { display: grid; grid-template-columns: 100px 1fr; gap: 16px; padding: 13px 0; border-top: 1px solid var(--line-light); }
 .details-intro dt { color: rgba(19, 32, 25, 0.56); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; }
 .details-intro dd { margin: 0; font-size: 12px; line-height: 1.55; }
-.details-list { border-top: 1px solid var(--line-light); }
-.details-list article { display: grid; grid-template-columns: 38px 1fr; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--line-light); }
-.details-list article > span { color: var(--terracotta); font-size: 9px; letter-spacing: 0.12em; }
-.details-list h3 { margin: 0; font-family: 'Tenor Sans', sans-serif; font-size: 15px; font-weight: 400; }
-.details-list p { margin: 5px 0 0; color: rgba(19, 32, 25, 0.62); font-size: 11px; line-height: 1.55; }
+.amenities-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(40px, 5vw, 72px) clamp(28px, 5vw, 76px); padding: 8px 0 14px; }
+.amenities-grid article { display: flex; min-width: 0; align-items: center; flex-direction: column; text-align: center; }
+.amenity-icon { width: clamp(48px, 4.5vw, 64px); height: clamp(48px, 4.5vw, 64px); margin-bottom: 18px; color: rgba(19, 32, 25, 0.62); fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+.amenities-grid h3 { max-width: 280px; margin: 0; font-family: 'Tenor Sans', sans-serif; font-size: clamp(15px, 1.25vw, 19px); font-weight: 400; line-height: 1.35; }
+.amenities-grid p { max-width: 32ch; margin: 8px auto 0; color: rgba(19, 32, 25, 0.58); font-size: 10px; line-height: 1.55; }
 
 .masterplan-overlay > .panel { height: min(920px, calc(100dvh - 48px)); overflow: hidden; }
 .masterplan-head { display: flex; min-height: 190px; align-items: flex-end; justify-content: space-between; gap: 30px; padding: 46px 92px 26px 42px; }
@@ -528,6 +528,11 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
   .hero-bottom { gap: 12px; }
   .hero-fact strong { font-size: 25px; }
   .hero-fact > span { font-size: 7px; letter-spacing: 0.2em; }
+  .details-lower { gap: 46px; }
+  .amenities-grid { gap: 38px 14px; }
+  .amenity-icon { width: 44px; height: 44px; margin-bottom: 13px; stroke-width: 1.6; }
+  .amenities-grid h3 { font-size: 13px; }
+  .amenities-grid p { margin-top: 6px; font-size: 9px; line-height: 1.45; }
   .scene-list { grid-template-columns: 1fr; }
   .scene-list button:nth-child(odd) { border-right: 0; }
   .masterplan-map { min-height: 330px; }
