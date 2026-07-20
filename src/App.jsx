@@ -254,7 +254,7 @@ function PanoramaPanel({ closePanel, sceneId, setSceneId, backToMasterplan }) {
         </div>
       </div>
       <div className="panorama-frame">
-        <iframe key={active.id} src={`/360/index.html?scene=${active.id}&embed=1`} title={`Interactive panorama: ${active.title}`} allow="fullscreen; accelerometer; gyroscope" />
+        <iframe key={active.id} src={`/360/index.html?scene=${active.id}&embed=1`} title={`Interactive panorama: ${active.title}`} allow="fullscreen; accelerometer; gyroscope" allowFullScreen />
         <div className="drag-hint" aria-hidden="true"><span>↔</span> Drag to explore</div>
       </div>
       <div className="panorama-strip" role="group" aria-label="Panorama scenes">

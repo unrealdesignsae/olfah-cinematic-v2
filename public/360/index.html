@@ -316,8 +316,47 @@
       const gyroButton = document.getElementById('gyro');
       const sceneName = document.getElementById('scene-name');
       const sceneButtons = [...document.querySelectorAll('[data-scene]')];
+      const fullscreenTarget = document.querySelector('main');
       let rotating = !reducedMotion;
       let motionView = false;
+
+      const activeFullscreenElement = () => document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+
+      const updateFullscreenControl = () => {
+        const isFullscreen = Boolean(activeFullscreenElement());
+        const action = isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen';
+        fullscreenButton.setAttribute('aria-label', action);
+        fullscreenButton.setAttribute('title', action);
+        fullscreenButton.setAttribute('aria-pressed', String(isFullscreen));
+        fullscreenButton.innerHTML = isFullscreen
+          ? '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 9H5V5m10 4h4V5M9 15H5v4m10-4h4v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+          : '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5H5v4m10-4h4v4M9 19H5v-4m10 4h4v-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      };
+
+      const openStandaloneViewer = () => {
+        const scene = viewer.getScene() || initialScene;
+        window.open(`${window.location.pathname}?scene=${scene}`, '_blank', 'noopener,noreferrer');
+      };
+
+      const toggleViewerFullscreen = async () => {
+        try {
+          if (activeFullscreenElement()) {
+            const exitFullscreen = document.exitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen;
+            if (exitFullscreen) await exitFullscreen.call(document);
+            return;
+          }
+
+          const requestFullscreen = fullscreenTarget.requestFullscreen || fullscreenTarget.webkitRequestFullscreen || fullscreenTarget.msRequestFullscreen;
+          if (!requestFullscreen) {
+            openStandaloneViewer();
+            return;
+          }
+          await requestFullscreen.call(fullscreenTarget);
+        } catch (error) {
+          console.warn('Fullscreen request was unavailable; opening the standalone panorama instead.', error);
+          openStandaloneViewer();
+        }
+      };
 
       const syncSceneControls = (sceneId) => {
         sceneName.textContent = sceneLabels[sceneId];
@@ -334,7 +373,11 @@
         window.setTimeout(() => hint.classList.add('is-hidden'), 5200);
       });
 
-      fullscreenButton.addEventListener('click', () => viewer.toggleFullscreen());
+      fullscreenButton.addEventListener('click', toggleViewerFullscreen);
+      document.addEventListener('fullscreenchange', updateFullscreenControl);
+      document.addEventListener('webkitfullscreenchange', updateFullscreenControl);
+      document.addEventListener('MSFullscreenChange', updateFullscreenControl);
+      updateFullscreenControl();
 
       sceneButtons.forEach((button) => {
         button.addEventListener('click', () => {
