@@ -473,7 +473,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
   .concept-disclosure { top: 87px; }
   .concept-disclosure > button { grid-template-columns: 7px auto; }
   .concept-disclosure > button small { display: none; }
-  .hero-content { top: 46%; }
+  .hero-content { top: 50%; }
   .hero-kicker { margin-bottom: 18px; font-size: 8px; }
   .hero-copy { max-width: 470px; margin-top: 19px; }
   .hero-bottom { right: 18px; bottom: 20px; left: 18px; grid-template-columns: 1fr 1fr; }
