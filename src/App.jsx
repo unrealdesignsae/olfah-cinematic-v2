@@ -109,11 +109,13 @@ function ConceptDisclosure() {
   const [expanded, setExpanded] = useState(false)
 
   return (
-    <aside className={`concept-disclosure ${expanded ? 'is-expanded' : ''}`} aria-label="Independent concept disclosure">
+    <aside className={`concept-disclosure ${expanded ? 'is-expanded' : ''}`} aria-label="Independent concept disclaimer">
       <button type="button" aria-expanded={expanded} onClick={() => setExpanded((value) => !value)}>
-        <i aria-hidden="true" />
-        <span>Independent concept</span>
-        <small>Not affiliated with Alef Group</small>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3.5 21 20H3L12 3.5Z" />
+          <path d="M12 9v5.2M12 17.2v.1" />
+        </svg>
+        <span>Disclaimer</span>
       </button>
       <div className="concept-disclosure-panel" hidden={!expanded}>
         <div>
