@@ -98,7 +98,7 @@ function Header({ openPanel, menuOpen, setMenuOpen }) {
             <i className="unreal-mark" aria-hidden="true"><img src="/assets/unreal-logo-light.png" alt="" /></i>
             <b>unreal.ae</b> <Arrow />
           </a>
-          <a href="https://wa.me/971567502350" target="_blank" rel="noreferrer">+971 56 750 2350</a>
+          <a href="https://wa.me/971582045270" target="_blank" rel="noreferrer">00971582045270</a>
         </div>
       </div>
     </header>
@@ -168,7 +168,7 @@ function Hero({ scene, setScene, openPanel }) {
             <b>Made by Unreal Studio</b>
           </a>
           <span />
-          <a href="https://wa.me/971567502350" target="_blank" rel="noreferrer" aria-label="Contact Unreal Studio on WhatsApp at +971 56 750 2350">Contact</a>
+          <a href="https://wa.me/971582045270" target="_blank" rel="noreferrer" aria-label="Contact Unreal Studio on WhatsApp at 00971582045270">Contact</a>
         </div>
         <button className="hero-fact" type="button" onClick={() => openPanel('details')}>
           <strong>84,814 <small>m²</small></strong><span>Community</span>
